@@ -6,7 +6,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src",
+    "develop": "nodemon server",
+    "unit": "lab -a code -l -L test/unit",
+    "lint": "eslint ."
   },
   "author": "Jakub Bejnarowicz",
   "license": "ISC",
@@ -17,9 +20,12 @@
     "hapi": "18.1.0",
     "hapi-swagger": "9.4.2",
     "haute-couture": "3.3.0",
+    "http-as-promised": "2.0.1",
     "joi": "14.3.1",
     "lab": "18.0.2",
-    "lodash": "4.17.11"
+    "lodash": "4.17.11",
+    "nock": "10.0.6",
+    "proxyquire": "2.1.0"
   },
   "devDependencies": {
     "code": "5.2.4",

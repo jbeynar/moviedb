@@ -4,8 +4,8 @@ const Glue = require('glue');
 const Config = require('./config');
 
 exports.deployment = async (start) => {
-    const configuration = Config.get('/');
-    const server = await Glue.compose(configuration, {relativeTo: __dirname});
+    const config = Config.get('/hapi');
+    const server = await Glue.compose(config, { relativeTo: __dirname });
     await server.initialize();
     if (!start) {
         return server;
