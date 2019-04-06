@@ -1,0 +1,14 @@
+version: "3"
+services:
+  mongodb:
+    container_name: watchtardb
+    image: mongo:4.0.8
+    ports:
+      - "27017:27017"
+    environment:
+      - AUTH=yes
+      - MONGO_INITDB_ROOT_USERNAME=mdb
+      - MONGO_INITDB_ROOT_PASSWORD=changeme
+      - MONGO_INITDB_DATABASE=moviedb
+    volumes:
+      - ./docker_volumes/mongodb:/data/db

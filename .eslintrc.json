@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "eslint-config-hapi"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "func-style": [
+      "error"
+    ],
+    "arrow-parens": false
+  },
+  "rules": {
+    "func-style": [
+      1,
+      "declaration"
+    ],
+    "padding-line-between-statements": [
+      0,
+      {}
+    ],
+    "brace-style": 0,
+    "require-await": 0,
+    "arrow-parens": 0,
+    "hapi/hapi-scope-start": 0,
+    "hapi/hapi-capitalize-modules": 0
+  }
+}
