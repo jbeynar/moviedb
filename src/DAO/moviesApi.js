@@ -2,6 +2,7 @@
 
 const Http = require('http-as-promised');
 const Config = require('./../config');
+const Boom = require('Boom');
 
 module.exports = {
     searchOne: async function (title) {
@@ -11,8 +12,10 @@ module.exports = {
         try {
             return await Http(url, { resolve: 'response', json: true }).then(response => response.body);
         } catch (e) {
-            console.error('Can not access external movies API');
-            console.error(e);
+            if (!(e instanceof Boom)) {
+                throw Boom.serverUnavailable(`Movies provider API service unavailable due to: ${e.toString()}`);
+            }
+            throw e;
         }
     }
 };
