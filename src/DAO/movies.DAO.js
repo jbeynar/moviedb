@@ -4,19 +4,19 @@ const Db = require('../libs/db');
 const _ = require('lodash');
 
 module.exports = {
-    save: async function (movie) {
+    save: async (movie) => {
         const [movies, close] = await Db.getCollection('movies');
         const result = await movies.insertOne(movie);
         close();
         return _.get(result, 'result.ok') === 1;
     },
-    get: async function (imdbID) {
+    get: async (imdbID) => {
         const [movies, close] = await Db.getCollection('movies');
         const result = await movies.findOne({ imdbID });
         close();
         return result;
     },
-    search: async function () {
+    search: async () => {
         const [movies, close] = await Db.getCollection('movies');
         const result = await movies.find({}).toArray();
         close();

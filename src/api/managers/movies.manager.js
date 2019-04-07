@@ -6,7 +6,7 @@ const Boom = require('boom');
 const _ = require('lodash');
 
 module.exports = {
-    fetchAndSaveMovie: async function (title) {
+    fetchAndSaveMovie: async (title) => {
         const movie = await MoviesApi.searchOne(title);
         if (_.get(movie, 'Error') === 'Movie not found!') {
             throw Boom.notFound('Movie not found in data provider API');
@@ -18,7 +18,5 @@ module.exports = {
         }
         return await MoviesDAO.save(movie);
     },
-    getMovies: async function () {
-        return await MoviesDAO.search();
-    }
+    getMovies: async () => await MoviesDAO.search()
 };
