@@ -18,6 +18,29 @@ module.exports = [
         method: 'POST',
         path: '/movies',
         options: {
+            tags: ['api'],
+            plugins: {
+                'hapi-swagger': {
+                    responses: {
+                        201: {
+                            description: 'Movie has been found in data provider API and saved in local database'
+                        },
+                        400: {
+                            description: 'Request payload does not match expected format'
+                        },
+                        404: {
+                            description: 'Movie not found in data provider API'
+                        },
+                        409: {
+                            description: 'Movie already exists in local database'
+                        },
+                        503: {
+                            description: 'Movies data provider API service unavailable'
+                        }
+                    },
+                    payloadType: 'form'
+                }
+            },
             validate: {
                 payload: {
                     title: Joi.string().required().description('Movie title')
@@ -25,7 +48,6 @@ module.exports = [
             },
             handler: async function (req, h) {
                 const query = req.payload;
-                console.info(`Movie metadata request for query ${JSON.stringify(query)}`);
                 try {
                     await MoviesManager.fetchAndSaveMovie(query.title);
                 } catch (err) {
