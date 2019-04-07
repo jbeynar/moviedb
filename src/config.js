@@ -31,26 +31,27 @@ module.exports = new Confidence.Store({
         }
     },
     database: {
-        url: {
-            $env: 'MONGODB_HOST',
-            $default: 'mongodb://localhost:27017'
+        $filter: 'env',
+        testing: {
+            url: 'mongodb://localhost:27017',
+            port: 27017,
+            user: 'testmdb',
+            password: 'testchangeme',
+            database: 'testmoviedb'
         },
-        port: {
-            $env: 'MONGODB_PORT',
-            $coerce: 'number',
-            $default: 27017
+        development: {
+            url: 'mongodb://localhost:27017',
+            port: 27017,
+            user: 'mdb',
+            password: 'changeme',
+            database: 'moviedb'
         },
-        user: {
-            $env: 'MONGODB_USER',
-            $default: 'mdb'
-        },
-        password: {
-            $env: 'MONGODB_PASSWORD',
-            $default: 'changeme'
-        },
-        database: {
-            $env: 'MONGODB_DATABASE',
-            $default: 'moviedb'
+        production: {
+            url: { $env: 'MONGODB_HOST' },
+            port: { $env: 'MONGODB_PORT' },
+            user: { $env: 'MONGODB_USER' },
+            password: { $env: 'MONGODB_PASSWORD' },
+            database: { $env: 'MONGODB_DATABASE' }
         }
     }
 });

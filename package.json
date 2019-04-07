@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node src",
     "develop": "nodemon src",
-    "unit": "lab -a code -l -L test/unit",
+    "unit": "ENV=testing lab -a code -l -L test/unit",
+    "e2e": "ENV=testing lab -a code -l -L test/e2e",
     "lint": "eslint ."
   },
   "author": "Jakub Bejnarowicz",
