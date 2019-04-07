@@ -27,7 +27,7 @@ describe('MoviesApi Data Access Object provides an interface to 3rd party movies
         const stubs = {
             './../config': configStub
         };
-        unit.moviesApi = Proxyquire('./../../src/DAO/moviesApi', stubs);
+        unit.moviesApi = Proxyquire('./../../src/DAO/movies.API', stubs);
     });
 
     describe('searchOne method', () => {
