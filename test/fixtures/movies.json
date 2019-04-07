@@ -10,5 +10,27 @@
     "imdbRating": "8.7",
     "imdbID": "tt0133093",
     "Type": "mock"
+  },
+  {
+    "Title": "Batman",
+    "Year": "1989",
+    "Runtime": "126 min",
+    "Genre": "Action, Adventure",
+    "Director": "Tim Burton",
+    "Country": "USA, UK",
+    "imdbRating": "7.5",
+    "imdbID": "tt0096895",
+    "Type": "mock"
+  },
+  {
+    "Title": "James Bond",
+    "Year": "2015",
+    "Runtime": "142 min",
+    "Genre": "Action, Comedy",
+    "Director": "Sai Kishore Macha",
+    "Country": "India",
+    "imdbRating": "5.5",
+    "imdbID": "tt4896340",
+    "Type": "mock"
   }
 ]

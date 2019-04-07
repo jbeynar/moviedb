@@ -11,3 +11,12 @@ services:
       - MONGO_INITDB_DATABASE=moviedb
     volumes:
       - ./docker_volumes/mongodb:/data/db
+  moviedbTest:
+    image: mongo:4.0.8
+    ports:
+      - "3007:27017"
+    environment:
+      - AUTH=yes
+      - MONGO_INITDB_ROOT_USERNAME=lab
+      - MONGO_INITDB_ROOT_PASSWORD=void
+      - MONGO_INITDB_DATABASE=moviedbTest

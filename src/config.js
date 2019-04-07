@@ -33,11 +33,11 @@ module.exports = new Confidence.Store({
     database: {
         $filter: 'env',
         testing: {
-            url: 'mongodb://localhost:27017',
-            port: 27017,
-            user: 'testmdb',
-            password: 'testchangeme',
-            database: 'testmoviedb'
+            url: 'mongodb://localhost:3007',
+            port: 3007,
+            user: 'lab',
+            password: 'void',
+            database: 'moviedbTest'
         },
         development: {
             url: 'mongodb://localhost:27017',
