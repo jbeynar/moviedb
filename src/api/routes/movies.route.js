@@ -9,8 +9,9 @@ module.exports = [
         method: 'GET',
         path: '/movies',
         options: {
+            tags: ['api'],
             handler: function () {
-                throw Boom.notImplemented('Not implemented yet');
+                return MoviesManager.getMovies();
             }
         }
     },

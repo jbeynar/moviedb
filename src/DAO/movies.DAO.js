@@ -15,5 +15,11 @@ module.exports = {
         const result = await movies.findOne({ imdbID });
         close();
         return result;
+    },
+    search: async function () {
+        const [movies, close] = await Db.getCollection('movies');
+        const result = await movies.find({}).toArray();
+        close();
+        return result;
     }
 };

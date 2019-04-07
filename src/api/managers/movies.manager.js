@@ -17,5 +17,8 @@ module.exports = {
             throw Boom.conflict(`Movie with imdbID=${movie.imdbID} already exists in local database.`);
         }
         return await MoviesDAO.save(movie);
+    },
+    getMovies: async function () {
+        return await MoviesDAO.search();
     }
 };

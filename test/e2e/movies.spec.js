@@ -49,7 +49,6 @@ describe('Movies endpoints', () => {
             });
         });
 
-
         describe('when the movie was not found using data provider API', () => {
 
             it('responds with code 404', async () => {
@@ -70,7 +69,7 @@ describe('Movies endpoints', () => {
 
                 it('responds with code 201', async () => {
                     const config = { ...abstractRequestConfig, body: { title: 'the matrix' } };
-                    const [response, body] = await Http.post(config);
+                    const [response, body] = await Http(config);
                     expect(response.statusCode).to.be.equal(201);
                     expect(body).to.be.undefined();
                 });
@@ -96,7 +95,7 @@ describe('Movies endpoints', () => {
 
                 it('responds with code 409', async () => {
                     const config = { ...abstractRequestConfig, body: { title: 'the matrix' } };
-                    const [response, body] = await Http.post(config);
+                    const [response, body] = await Http(config);
                     expect(response.statusCode).to.be.equal(409);
                     expect(body).to.be.equal({
                         statusCode: 409,
@@ -108,7 +107,7 @@ describe('Movies endpoints', () => {
                 it('won\'t save duplicate in local database', async () => {
                     const [movies, close] = await Db.getCollection('movies');
                     const data = await movies.find({}).toArray();
-                    expect(data).to.be.length(1);
+                    expect(data).to.be.length(3);
                     close();
                 });
             });
@@ -116,6 +115,50 @@ describe('Movies endpoints', () => {
         });
     });
 
+    describe('/movies GET', () => {
+
+        let abstractRequestConfig;
+
+        before(async () => {
+            await DbSeed.erase('movies');
+            await DbSeed.seed('movies', require('../fixtures/movies'));
+            abstractRequestConfig = {
+                url: `${serverAddress}/movies`,
+                method: 'GET',
+                error: false,
+                json: true
+            };
+        });
+
+        describe('when movies collection has 3 documents', () => {
+
+            it('responds 200 with all movies', async () => {
+                const [response, body] = await Http({ ...abstractRequestConfig });
+                expect(response.statusCode).to.be.equal(200);
+                expect(body).to.be.an.array();
+                expect(body).to.have.length(3);
+                expect(_.get(body, '[0].Title')).to.be.equal('The Matrix');
+                expect(_.get(body, '[1].Year')).to.be.equal('1989');
+                expect(_.get(body, '[2].imdbID')).to.be.equal('tt4896340');
+            });
+
+        });
+
+        describe('when movies collection is empty', () => {
+
+            before(async () => {
+                await DbSeed.erase('movies');
+            });
+
+            it('responds 200 with empty array', async () => {
+                const [response, body] = await Http({ ...abstractRequestConfig });
+                expect(response.statusCode).to.be.equal(200);
+                expect(body).to.be.an.array();
+                expect(body).to.have.length(0);
+            });
+
+        });
+    });
 
     after(async () => {
         await server.stop();
