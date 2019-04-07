@@ -6,7 +6,4 @@ services:
 before_install:
   - docker-compose up --no-start moviedbTest
   - docker-compose start moviedbTest
-  - sleep 5
-  - docker ps
-  - docker-compose logs
-script: npm run test
+script: npm run test-ci

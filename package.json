@@ -11,6 +11,7 @@
     "unit": "ENV=testing ./node_modules/.bin/lab -a code -l -L test/unit",
     "e2e": "ENV=testing ./node_modules/.bin/lab -a code -l -L test/e2e",
     "test": "ENV=testing ./node_modules/.bin/lab -a code -l -L test --coverage-all -v --coverage-path src",
+    "test-ci": "ENV=testing ./node_modules/.bin/lab -a code -I '__core-js_shared__, core' -L test --coverage-path src -r lcov | ./node_modules/.bin/coveralls",
     "lint": "eslint ."
   },
   "author": "Jakub Bejnarowicz",
@@ -32,8 +33,9 @@
   },
   "devDependencies": {
     "code": "5.2.4",
-    "handlebars": "^4.1.1",
-    "inert": "^5.1.3",
-    "vision": "^5.4.4"
+    "coveralls": "3.0.3",
+    "handlebars": "4.1.1",
+    "inert": "5.1.3",
+    "vision": "5.4.4"
   }
 }

@@ -1,5 +1,9 @@
 # Movies DB
 
+[![Build Status](https://travis-ci.org/jbeynar/moviedb.svg?branch=develop)](https://travis-ci.org/jbeynar/moviedb)
+
+[![Coverage Status](https://coveralls.io/repos/github/jbeynar/moviedb/badge.svg?branch=develop)](https://coveralls.io/github/jbeynar/moviedb?branch=develop)
+
 ## Requirements
 
 Required system depenedecies with recommended versions:
