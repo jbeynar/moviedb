@@ -9,7 +9,7 @@ const Db = require('./db');
  * @param dataset Array of documents
  * @returns {Promise<void>} Boolean|Array mongo acknowledgement
  */
-async function dbSeed(collectionName, dataset) {
+async function seed(collectionName, dataset) {
     const [collection, close] = await Db.getCollection(collectionName);
     const res = await collection.insertMany(dataset);
     close();
@@ -27,10 +27,9 @@ async function erase(collectionName) {
     const res = await collection.deleteMany({});
     close();
     return res;
-
 }
 
 module.exports = {
-    seed: dbSeed,
+    seed,
     erase
 };
