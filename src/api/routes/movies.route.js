@@ -1,8 +1,8 @@
 'use strict';
 
 const MoviesManager = require('../managers/movies.manager');
-const Joi = require('Joi');
-const Boom = require('Boom');
+const Joi = require('joi');
+const Boom = require('boom');
 
 module.exports = [
     {

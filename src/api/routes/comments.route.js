@@ -1,7 +1,7 @@
 'use strict';
 
 const CommentsManager = require('../managers/comments.manager');
-const Joi = require('Joi');
+const Joi = require('joi');
 
 module.exports = [
     {

@@ -2,7 +2,7 @@
 
 const Http = require('http-as-promised');
 const Config = require('./../config');
-const Boom = require('Boom');
+const Boom = require('boom');
 
 module.exports = {
     searchOne: async function (title) {

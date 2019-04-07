@@ -39,7 +39,7 @@ describe('Movies endpoints', () => {
 
             it('responds with code 400', async () => {
                 const config = { ...abstractRequestConfig, body: { a: 1 } };
-                const [response, body] = await Http.post(config);
+                const [response, body] = await Http(config);
                 expect(response.statusCode).to.be.equal(400);
                 expect(body).to.be.equal({
                     statusCode: 400,
@@ -53,13 +53,13 @@ describe('Movies endpoints', () => {
 
             it('responds with code 404', async () => {
                 const config = { ...abstractRequestConfig, body: { title: 'notExistingMovie123ABC' } };
-                const [response, body] = await Http.post(config);
-                expect(response.statusCode).to.be.equal(404);
+                const [response, body] = await Http(config);
                 expect(body).to.be.equal({
                     statusCode: 404,
                     error: 'Not Found',
                     message: 'Movie not found in data provider API'
                 });
+                expect(response.statusCode).to.be.equal(404);
             });
         });
 

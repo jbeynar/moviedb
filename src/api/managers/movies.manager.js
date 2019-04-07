@@ -2,7 +2,7 @@
 
 const MoviesApi = require('./../../DAO/movies.API');
 const MoviesDAO = require('./../../DAO/movies.DAO');
-const Boom = require('Boom');
+const Boom = require('boom');
 const _ = require('lodash');
 
 module.exports = {
