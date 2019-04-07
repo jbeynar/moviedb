@@ -10,7 +10,7 @@ module.exports = [
         path: '/movies',
         options: {
             tags: ['api'],
-            handler: function () {
+            handler: () => {
                 return MoviesManager.getMovies();
             }
         }
@@ -47,7 +47,7 @@ module.exports = [
                     title: Joi.string().required().description('Movie title')
                 }
             },
-            handler: async function (req, h) {
+            handler: async (req, h) => {
                 const query = req.payload;
                 try {
                     await MoviesManager.fetchAndSaveMovie(query.title);

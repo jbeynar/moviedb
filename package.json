@@ -8,9 +8,9 @@
   "scripts": {
     "start": "node src",
     "develop": "nodemon src",
-    "unit": "ENV=testing lab -a code -l -L test/unit",
-    "e2e": "ENV=testing lab -a code -l -L test/e2e",
-    "test": "ENV=testing lab -a code -l -L test --coverage-all -v",
+    "unit": "ENV=testing ./node_modules/.bin/lab -a code -l -L test/unit",
+    "e2e": "ENV=testing ./node_modules/.bin/lab -a code -l -L test/e2e",
+    "test": "ENV=testing ./node_modules/.bin/lab -a code -l -L test --coverage-all -v --coverage-path src",
     "lint": "eslint ."
   },
   "author": "Jakub Bejnarowicz",
