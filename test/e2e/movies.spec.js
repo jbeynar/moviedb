@@ -74,7 +74,7 @@ describe('Movies endpoints', () => {
                     expect(body).to.be.undefined();
                 });
 
-                it('saves document in local database', async () => {
+                it('saves document in mongo movies collection', async () => {
                     const [movies, close] = await Db.getCollection('movies');
                     const data = await movies.find({}).toArray();
                     expect(data).to.be.length(1);

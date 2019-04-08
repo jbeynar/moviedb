@@ -1,0 +1,17 @@
+[
+  {
+    "body": "Lorem ipsum dolor sit amet",
+    "author": "user",
+    "createTime": "2019-04-06T20:58:00.094Z"
+  },
+  {
+    "body": "Nulla in purus erat",
+    "author": "jbeynar",
+    "createTime": "2019-04-07T14:12:00.011Z"
+  },
+  {
+    "body": "Aenean imperdiet augue eget lectus lobortis, eu bibendum ante consectetur.",
+    "author": "anonymous",
+    "createTime": "2019-04-08T19:44:00.242Z"
+  }
+]
