@@ -39,7 +39,7 @@ Running demo is avaliable online: https://simple-movies-api.herokuapp.com
     ```
     export OMDB_API_KEY=xxxxxxxxx
     ``` 
-3. Bootstrap docker containers.
+3. Bootstrap docker containers:
     ```
     docker-compose up
     ```
@@ -76,7 +76,7 @@ npm run lint
 
 ## Documentation
 
-Swagger is available. Start server in normal or develop mode and browse to http://localhost:3000/documentation
+Swagger is available. Start server in normal or develop mode and browse to [http://localhost:3000/documentation](http://localhost:3000/documentation)
 
 Online Swagger documentation is avaliable [here](https://simple-movies-api.herokuapp.com/documentation).
 
@@ -90,11 +90,11 @@ NOTE: this mode requires nodemon installed on the environment.
 
 ## Coverage
 
-https://coveralls.io/github/jbeynar/moviedb
+[https://coveralls.io/github/jbeynar/moviedb](https://coveralls.io/github/jbeynar/moviedb)
 
 ## CI
 
-https://travis-ci.org/jbeynar/moviedb
+[https://travis-ci.org/jbeynar/moviedb](https://travis-ci.org/jbeynar/moviedb)
 
 ## TODO
 - Authentication and authorization
