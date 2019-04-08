@@ -100,3 +100,4 @@ NOTE: this mode requires nodemon installed on the environment.
 - Authentication and authorization
 - Logs handling and application monitoring
 - Tests in docker container
+- Movies filtering and pagination
