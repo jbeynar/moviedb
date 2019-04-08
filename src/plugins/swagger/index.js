@@ -19,7 +19,13 @@ module.exports = {
                     documentationPage: false,
                     validatorUrl: null,
                     info: {
-                        version: Package.version
+                        title: 'Movie DB API documentation',
+                        description: 'JSON REST API build on nodejs stack.',
+                        version: Package.version,
+                        contact: {
+                            name: 'Jakub Bejnarowicz',
+                            email: 'jakub.bejnarowicz@gmail.com'
+                        }
                     }
                 }
             }
